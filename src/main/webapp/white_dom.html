@@ -946,9 +946,8 @@ $(function () {
 		$("*").each(function () {
 			var attributes = this.attributes;
 			var attrNode;
-			var i;
 				
-			for (i=0; i<attributes.length; i++) {
+			for (var i=0; i<attributes.length; i++) {
 				attrNode = attributes[i];
 					
 				if (attrNode.value === targetAttrValue) {
