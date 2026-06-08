@@ -1,0 +1,1857 @@
+@charset "UTF-8";
+
+/* =========================================================
+   01. 기본 초기화 / 전체 화면
+   ========================================================= */
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #1c2028;
+	font-family: "Dotum", "돋움", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 1.2;
+	color: #d7dae0;
+	min-width: 1280px;
+}
+
+div, ul, li, form, fieldset, legend,
+table, caption, thead, tbody, tfoot,
+tr, th, td, p, span, label, input,
+select {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+fieldset {
+	border: 0;
+}
+
+caption,
+.blind {
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	font-size: 0;
+	line-height: 0;
+}
+
+
+/* =========================================================
+   02. 전체 레이아웃
+   ========================================================= */
+#wrap {
+	width: 1280px;
+	height: 800px;
+	margin: 50px auto 0 auto;
+	background: #2b2f38;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+#leftSide {
+	float: left;
+	width: 740px;
+	height: 760px;
+	margin-right: 8px;
+	background: #2b2f38;
+	overflow: visible;
+}
+
+#rightSide {
+	float: left;
+	width: 520px;
+	height: 750px;
+	background: #2b2f38;
+	overflow: visible;
+}
+
+#wrap:after,
+#leftSide:after,
+#rightSide:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+/* =========================================================
+   03. 입력창 / 버튼 공통
+   ========================================================= */
+input,
+select {
+	font-family: "Dotum", "돋움", Arial, sans-serif;
+	font-size: 11px;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+	height: 21px;
+	border: 1px solid #161b22;
+	background: #383d47;
+	color: #ffffff;
+}
+
+input[type="text"],
+input[type="password"] {
+	padding: 1px 4px;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	height: 24px;
+	padding: 0 8px;
+	border: 1px solid #171b22;
+	background: linear-gradient(to bottom, #575e6c 0%, #474e5b 46%, #3a404b 47%, #2f3440 100%);
+	color: #edf1f6;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+/* 체크박스 / 라디오박스 검정색 */
+input[type="checkbox"],
+input[type="radio"] {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 13px;
+	height: 13px;
+	margin: 0 3px;
+	vertical-align: middle;
+	background: #11161d;
+	border: 1px solid #5b6370;
+	box-sizing: border-box;
+	position: relative;
+}
+
+input[type="checkbox"]:checked:after {
+	content: "";
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	width: 7px;
+	height: 7px;
+	background: #e7ebf0;
+}
+
+input[type="radio"] {
+	border-radius: 50%;
+}
+
+input[type="radio"]:checked:after {
+	content: "";
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	width: 5px;
+	height: 5px;
+	background: #f4a000;
+	border-radius: 50%;
+}
+
+/* 조회 버튼 */
+input.searchBtn {
+	width: 50px;
+	height: 24px;
+	padding: 0;
+	border: 1px solid #8d4d00;
+	background: linear-gradient(to bottom, #f09a18 0%, #d27400 48%, #a95000 100%);
+	color: #111111;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 22px;
+	text-shadow: 0 1px 0 rgba(255, 205, 110, 0.35);
+}
+
+/* 관심 버튼 */
+.yellowSmall {
+	width: 34px;
+	padding: 0;
+	border: 1px solid #8a6400;
+	background: linear-gradient(to bottom, #e0aa24 0%, #c58a11 48%, #9a6700 100%);
+	color: #111111;
+	font-weight: bold;
+	text-shadow: 0 1px 0 rgba(255, 220, 110, 0.35);
+}
+
+/* 일반 버튼 */
+.normalBtn {
+	width: 76px;
+	border: 1px solid #171b22;
+	background: linear-gradient(to bottom, #59606e 0%, #4a515e 46%, #3d434f 47%, #313742 100%);
+	color: #eef2f7;
+	font-weight: normal;
+}
+
+/* 가능 버튼 */
+.ableBtn {
+	width: 44px;
+	padding: 0;
+	border: 1px solid #171b22;
+	background: linear-gradient(to bottom, #5a606d 0%, #4a505d 46%, #3d434e 47%, #313742 100%);
+	color: #eef2f7;
+	font-weight: normal;
+}
+
+/* 돋보기 버튼 */
+input.smallSearch {
+	width: 22px;
+	height: 21px;
+	padding: 0;
+	border: 1px solid #171b22;
+	background-color: #454b57;
+	background-image: url("images/black_search.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 30px 30px;
+	font-size: 0;
+	line-height: 0;
+}
+
+/* 현금매도 버튼 */
+.sellBtn {
+	width: 66px;
+	background: linear-gradient(to bottom, #1c96ee 0%, #0076cc 50%, #005da5 100%);
+	border: 1px solid #004579;
+	color: #ffffff;
+	font-weight: normal;
+}
+
+
+/* =========================================================
+   04. 숫자 색상 공통
+   ========================================================= */
+.price-rise {
+	color: #e05a68;
+}
+
+.price-fall,
+.down {
+	color: #4b94c9;
+}
+
+.strongRed {
+	color: #ff1f35;
+	font-weight: bold;
+}
+
+.stock-name {
+	text-align: left;
+	color: #f2f2f2;
+}
+
+
+/* =========================================================
+   05. 공통 테이블 디자인
+   ========================================================= */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+th,
+td {
+	height: 21px;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+	text-align: right;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	box-sizing: border-box;
+}
+
+th {
+	background: #3b404b;
+	color: #d0d4dc;
+	font-weight: normal;
+	text-align: center;
+}
+
+td {
+	background: #2b2f38;
+	color: #d7dae0;
+	padding: 0 5px;
+}
+
+.nameCol {
+	font-size: 11px;
+}
+
+
+/* =========================================================
+   06. 공통 탭 기본 정렬
+   ========================================================= */
+#leftTopTabs ul,
+#rightTopTabs ul,
+#bottomTabs ul,
+#orderTabs ul {
+	position: relative;
+	z-index: 2;
+	float: left;
+}
+
+#leftTopTabs li,
+#rightTopTabs li,
+#bottomTabs li,
+#orderTabs li {
+	float: left;
+}
+
+#leftTopTabs li + li input,
+#rightTopTabs li + li input,
+#bottomTabs li + li input,
+#orderTabs li + li input {
+	margin-left: -1px;
+}
+
+/* =========================================================
+   06-1. 검정 테마 패널 박스 공통
+   ========================================================= */
+.leftWatchPanel,
+.leftTimePanel,
+.rightPricePanel,
+.rightOrderPanel {
+	position: relative;
+	background: #2b2f38;
+	border: 1px solid #363c46;
+	border-radius: 6px;
+	box-sizing: border-box;
+	overflow: hidden;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.045),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.28),
+		1px 1px 0 rgba(0, 0, 0, 0.22);
+	padding: 7px 0 15px 0;
+}
+
+.leftWatchPanel {
+	margin: 4px 4px 10px 4px;
+	width: calc(100% - 8px);
+}
+
+.leftTimePanel {
+	margin: 0 4px 0 4px;
+	width: calc(100% - 8px);
+	padding-bottom: 4px;
+}
+
+.rightPricePanel {
+	height: 428px;
+	margin: 4px 4px 14px 0;
+	width: calc(100% - 4px);
+}
+
+.rightOrderPanel {
+	margin: 0 4px 0 0;
+	width: calc(100% - 4px);
+}
+
+.leftTimePanel:before,
+.rightPricePanel:before,
+.rightOrderPanel:before {
+	content: "";
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	right: 1px;
+	bottom: 1px;
+	border-radius: 5px;
+	border-top: 1px solid rgba(255, 255, 255, 0.025);
+	border-left: 1px solid rgba(255, 255, 255, 0.02);
+	border-right: 1px solid rgba(0, 0, 0, 0.18);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+	box-sizing: border-box;
+	pointer-events: none;
+	z-index: 30;
+}
+
+/* =========================================================
+   07. 왼쪽 상단 관심종목 구역
+   - 2층: 관심종목 탭
+   - 3층: 관심그룹 검색줄 + 표
+   ========================================================= */
+/* 2층 탭 */
+#leftSide #leftTopTabs {
+position: relative;
+	height: 28px;
+	margin: 0 8px 7px 8px;
+	padding: 0 62px 0 0;
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+#leftSide #leftTopTabs:after {
+	display: none;
+	content: none;
+}
+
+#leftSide #leftTopTabs input {
+height: 28px;
+	margin: 0;
+	padding: 0 13px;
+	background: linear-gradient(to bottom, #5b6371 0%, #4b5260 45%, #3f4551 46%, #323843 100%);
+	border-top: 1px solid #6a7180;
+	border-left: 1px solid #171b22;
+	border-right: 1px solid #171b22;
+	border-bottom: 1px solid #171b22;
+	color: #eef2f7;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	box-sizing: border-box;
+}
+
+#leftSide #leftTopTabs input.on {
+height: 28px;
+	padding: 0 13px;
+	background: linear-gradient(to bottom, #7256e6 0%, #5c3dca 52%, #4f35b4 100%);
+	border-top: 1px solid #8571ec;
+	border-left: 1px solid #4b32ad;
+	border-right: 1px solid #4b32ad;
+	border-bottom: 1px solid #4b32ad;
+	color: #ffffff;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+#leftSide #leftTopTabs .arrowBox {
+position: absolute;
+	right: 0;
+	top: 2px;
+	width: 48px;
+	height: 22px;
+	z-index: 10;
+}
+
+#leftSide #leftTopTabs .arrowBox input {
+-webkit-appearance: none;
+	appearance: none;
+	float: left;
+	width: 22px;
+	height: 22px;
+	margin: 0 0 0 2px;
+	padding: 0;
+	border: 1px solid #171b22;
+	border-radius: 0;
+	background-image: none;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.08),
+		inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+	color: #b8bec8;
+	font-size: 10px;
+	font-weight: normal;
+	line-height: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#leftSide #leftTopTabs .arrowBox input:first-child {
+	background: linear-gradient(to bottom, #2d333d 0%, #414956 50%, #596270 100%);
+}
+
+#leftSide #leftTopTabs .arrowBox input:last-child {
+	background: linear-gradient(to bottom, #596270 0%, #414956 50%, #2d333d 100%);
+}
+
+/* 3층 검색줄 */
+#watchSearch {
+position: relative;
+	height: 34px;
+	margin: 0 8px 8px 8px;
+	border: 1px solid #363c46;
+	border-radius: 0;
+	background: #2b2f38;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.03),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.20),
+		1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+#watchSearch fieldset {
+position: relative;
+	height: 32px;
+	padding: 5px 10px 0 10px;
+	box-sizing: border-box;
+	line-height: 22px;
+}
+
+#watchSearch label {
+display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	margin-right: 7px;
+	color: #e3e7ee;
+	font-size: 12px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#watchSearch select {
+height: 22px;
+	vertical-align: middle;
+}
+
+#watchSearch select:first-of-type {
+	width: 172px;
+	margin-right: 6px;
+}
+
+#watchSearch label[for="watchType"] {
+	margin-left: 0;
+	margin-right: 6px;
+}
+
+#watchSearch input.normalBtn {
+width: 106px;
+	height: 22px;
+	padding: 0;
+	margin-left: 0;
+	margin-right: 24px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+#watchSearch #watchType {
+width: 96px;
+	height: 22px;
+	margin-right: 0;
+}
+
+#watchSearch .searchBtn {
+position: absolute;
+	right: 10px;
+	top: 5px;
+	width: 50px;
+	height: 22px;
+	line-height: 20px;
+}
+
+/* 3층 표 */
+#watchTable {
+position: relative;
+	width: 100%;
+	height: 318px;
+	margin: 0 0 12px 0;
+	border: 1px solid #363c46;
+	border-radius: 0;
+	background: #2b2f38;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.03),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.20),
+		1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* 관심종목 거래량 가짜 스크롤바 */
+#watchTable:after {
+	content: "";
+	position: absolute;
+	right: 2px;
+	top: 25px;
+	width: 4px;
+	height: 250px;
+	background: rgba(150, 158, 170, 0.10);
+	border: 1px solid rgba(210, 220, 235, 0.25);
+	border-radius: 4px;
+	box-sizing: border-box;
+	pointer-events: none;
+}
+
+#watchTable th:nth-child(1),
+#watchTable td:nth-child(1) {
+	width: 120px;
+}
+
+#watchTable th:nth-child(2),
+#watchTable td:nth-child(2),
+#watchTable th:nth-child(3),
+#watchTable td:nth-child(3),
+#watchTable th:nth-child(4),
+#watchTable td:nth-child(4),
+#watchTable th:nth-child(5),
+#watchTable td:nth-child(5),
+#watchTable th:nth-child(6),
+#watchTable td:nth-child(6),
+#watchTable th:nth-child(7),
+#watchTable td:nth-child(7),
+#watchTable th:nth-child(8),
+#watchTable td:nth-child(8) {
+	width: 80px;
+}
+
+
+#watchTable th {
+	height: 22px;
+	background: #3b404b;
+	color: #d0d4dc;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+	font-weight: normal;
+}
+
+#watchTable td {
+	height: 22px;
+	background: #2b2f38;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+	padding: 0 5px;
+}
+
+#watchTable tbody tr:nth-child(even) td {
+	background: #282c35;
+}
+
+#watchTable th:first-child,
+#watchTable td:first-child {
+	border-left: 0;
+}
+
+#watchTable th:last-child,
+#watchTable td:last-child {
+	border-right: 0;
+}
+
+#watchTable th.sortCol {
+	position: relative;
+	background-image: none;
+	padding-left: 14px;
+	text-align: center;
+}
+
+#watchTable th.sortCol:before {
+	content: "▲\A▼";
+	position: absolute;
+	left: 22px;
+	top: 3px;
+	width: 8px;
+	height: 11px;
+	white-space: pre;
+	line-height: 8px;
+	font-size: 9px;
+	font-family: Arial, sans-serif;
+	color: #8a9aa0;
+	text-align: center;
+}
+
+#watchTable th.sortCol:nth-child(1):before {
+	left: 42px;
+}
+
+#watchTable td.changeCell {
+	position: relative;
+	text-align: right;
+	padding-left: 18px;
+	padding-right: 5px;
+}
+
+#watchTable td.changeCell .changeArrow {
+	position: absolute;
+	left: 4px;
+	top: 0;
+	width: 10px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	font-size: 11px;
+	color: inherit;
+}
+
+#watchTable td.changeCell .changeNum {
+	display: inline-block;
+}
+
+
+/* =========================================================
+   08. 왼쪽 하단 시간별시세 구역
+   - 2층: 시간별시세 탭
+   - 3층: 종목검색 검색줄 + 표 + 상태바
+   ========================================================= */
+/* 2층 탭 */
+#leftSide #bottomTabs {
+position: relative;
+	height: 28px;
+	margin: 0 8px 7px 8px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+#leftSide #bottomTabs:after {
+	display: none;
+	content: none;
+}
+
+#leftSide #bottomTabs input {
+height: 28px;
+	margin: 0;
+	padding: 0 13px;
+	background: linear-gradient(to bottom, #5b6371 0%, #4b5260 45%, #3f4551 46%, #323843 100%);
+	border-top: 1px solid #6a7180;
+	border-left: 1px solid #171b22;
+	border-right: 1px solid #171b22;
+	border-bottom: 1px solid #171b22;
+	color: #eef2f7;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	box-sizing: border-box;
+}
+
+#leftSide #bottomTabs input.on {
+height: 28px;
+	background: linear-gradient(to bottom, #7256e6 0%, #5c3dca 52%, #4f35b4 100%);
+	border-top: 1px solid #8571ec;
+	border-left: 1px solid #4b32ad;
+	border-right: 1px solid #4b32ad;
+	border-bottom: 1px solid #4b32ad;
+	color: #ffffff;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* 3층 검색줄 */
+#leftSide #timeSearch {
+position: relative;
+	height: 62px;
+	margin: 0 8px 8px 8px;
+	background: #2b2f38;
+	border: 1px solid #363c46;
+	border-radius: 0;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.03),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.20),
+		1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+#leftSide #timeSearch fieldset {
+padding: 5px 10px 0 10px;
+	box-sizing: border-box;
+}
+
+#leftSide .timeSearchLine {
+height: 25px;
+	line-height: 22px;
+	overflow: hidden;
+}
+
+#leftSide #timeSearch label {
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	margin-right: 4px;
+	color: #d6d9df;
+	font-size: 13px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#leftSide #timeSearch .timeSearchLine > label:first-child {
+	width: 58px;
+	margin-right: 4px;
+	text-align: left;
+}
+
+#leftSide #timeSearch .timeSearchLine > label:not(:first-child) {
+	width: auto;
+	margin-left: 12px;
+	margin-right: 4px;
+	text-align: left;
+}
+
+#leftSide #timeSearch input[type="text"],
+#leftSide #timeSearch select,
+#leftSide #timeSearch input.smallSearch,
+#leftSide #timeSearch input.yellowSmall {
+	height: 22px;
+	vertical-align: middle;
+}
+
+#leftSide #timeStock {
+height: 22px;
+	padding: 1px 4px;
+	border-top: 1px solid #0d1118;
+	border-left: 1px solid #0d1118;
+	border-right: 1px solid #4d5562;
+	border-bottom: 1px solid #4d5562;
+	background: #2e343f;
+	box-shadow:
+		inset 1px 1px 0 #1b2029,
+		inset -1px -1px 0 #3f4652;
+	color: #ffffff;
+	font-size: 11px;
+	line-height: 18px;
+	box-sizing: border-box;
+	width: 88px;
+}
+
+#leftSide #dayType {
+	width: 90px;
+	margin-right: 8px;
+}
+
+#leftSide #tickType {
+	width: 82px;
+}
+
+#leftSide #timeSearch input.smallSearch {
+	width: 22px;
+	height: 22px;
+	margin-left: 0;
+	padding: 0;
+}
+
+#leftSide #timeSearch input.yellowSmall {
+	width: 32px;
+	height: 22px;
+	margin-left: 0;
+	padding: 0;
+	border: 1px solid #8a6400;
+	background: linear-gradient(to bottom, #e0aa24 0%, #c58a11 48%, #9a6700 100%);
+	color: #111111;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 20px;
+	text-shadow: 0 1px 0 rgba(255, 220, 110, 0.35);
+}
+
+/* 현대제철 텍스트 박스 */
+#leftSide #timeSearch .stockNameText {
+	display: inline-block;
+	height: 22px;
+	line-height: 20px;
+	margin: 0 1px;
+	padding: 0 5px;
+	background: #25334a;
+	border: 0;
+	color: #e9edf3;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+/* [KOSPI200/철강,금속] 증 30 % 텍스트 박스 */
+#leftSide #timeSearch .marketBadge {
+	display: inline-block;
+	height: 22px;
+	line-height: 20px;
+	margin: 0 0 0 1px;
+	padding: 0 15px 0 5px;
+	background: #25334a;
+	border: 0;
+	color: #e9edf3;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+#leftSide #timeSearch .marketBadge .strongRed {
+	display: inline;
+	margin-left: 8px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	color: #ff1f35;
+	font-size: 13px;
+	font-weight: bold;
+	vertical-align: baseline;
+}
+
+#leftSide #timeSearch .searchBtn {
+position: absolute;
+	right: 10px;
+	top: 11px;
+	float: none;
+	width: 50px;
+	height: 37px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #8d4d00;
+	background: linear-gradient(to bottom, #f09a18 0%, #d27400 48%, #a95000 100%);
+	color: #111111;
+	font-weight: bold;
+	line-height: 35px;
+	text-shadow: 0 1px 0 rgba(255, 205, 110, 0.35);
+}
+
+/* 3층 표 */
+#leftSide #timeTable {
+position: relative;
+	width: 100%;
+	height: 160px;
+	margin: 0;
+	border: 1px solid #363c46;
+	border-radius: 0;
+	background: #2b2f38;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.03),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.20),
+		1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* 시간별시세 거래량 가짜 스크롤바 */
+#leftSide #timeTable:after {
+	content: "";
+	position: absolute;
+	right: 2px;
+	top: 24px;
+	width: 4px;
+	height: 28px;
+	background: rgba(150, 158, 170, 0.10);
+	border: 1px solid rgba(210, 220, 235, 0.25);
+	border-radius: 4px;
+	box-sizing: border-box;
+	pointer-events: none;
+}
+
+#leftSide #timeTable th {
+	height: 21px;
+	background: #3b404b;
+	color: #d0d4dc;
+	font-weight: normal;
+	text-align: center;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+}
+
+#leftSide #timeTable td {
+	height: 20px;
+	background: #2b2f38;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+	padding: 0 5px;
+}
+
+#leftSide #timeTable tbody tr:nth-child(even) td {
+	background: #282c35;
+}
+
+#leftSide #timeTable th:last-child,
+#leftSide #timeTable td:last-child {
+	border-right: 0;
+}
+
+#leftSide #timeTable td:first-child {
+	text-align: center;
+}
+
+#leftSide #timeTable td:nth-child(n+2) {
+	text-align: right;
+}
+
+#leftSide #timeTable td.timeChange {
+	position: relative;
+	text-align: right;
+	padding-left: 24px;
+	padding-right: 8px;
+}
+
+#leftSide #timeTable td.timeChange .timeArrow {
+	position: absolute;
+	left: 18px;
+	top: 0;
+	width: 10px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 11px;
+	color: inherit;
+}
+
+#leftSide #timeTable td.timeChange .timeNum {
+	display: inline-block;
+}
+
+/* 상태바 */
+#leftSide #statusBar {
+display: block;
+	clear: both;
+	width: 100%;
+	height: 30px;
+	line-height: 24px;
+	margin: 0;
+	padding: 4px 0 0 0;
+	background: #2b2f38;
+	border-left: 1px solid #363c46;
+	border-right: 1px solid #363c46;
+	border-top: 0;
+	border-bottom: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+#leftSide #statusBar span {
+	position: relative;
+	top: -2px;
+	float: left;
+	margin-left: 10px;
+	color: #d5a325;
+	font-size: 13px;
+}
+
+#leftSide #statusBar input {
+-webkit-appearance: none;
+	appearance: none;
+	float: right;
+	height: 22px;
+	margin-top: 3px;
+	margin-left: 4px;
+	padding: 0;
+	border: 1px solid #171b22;
+	border-radius: 0;
+	background: linear-gradient(to bottom, #5a6270 0%, #4a515f 45%, #3d444f 46%, #303640 100%);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.08),
+		inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+	color: #e3e7ee;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#leftSide #statusBar input:first-of-type {
+width: 50px;
+	margin-right: 10px;
+}
+
+#leftSide #statusBar input:last-of-type {
+width: 70px;
+}
+
+
+/* =========================================================
+   09. 오른쪽 상단 현재가 구역
+   - 2층: 현재가 탭
+   - 3층: 검색줄 + 현재가 요약표 + 호가창
+   ========================================================= */
+/* 2층 탭 */
+#rightSide #rightTopTabs {
+position: relative;
+	height: 28px;
+	margin: 0 8px 7px 8px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+#rightSide #rightTopTabs:after {
+	display: none;
+	content: none;
+}
+
+#rightSide #rightTopTabs input {
+width: 50px;
+	height: 28px;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(to bottom, #5b6371 0%, #4b5260 45%, #3f4551 46%, #323843 100%);
+	border-top: 1px solid #6a7180;
+	border-left: 1px solid #171b22;
+	border-right: 1px solid #171b22;
+	border-bottom: 1px solid #171b22;
+	color: #eef2f7;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	box-sizing: border-box;
+}
+
+#rightSide #rightTopTabs input.on {
+height: 28px;
+	background: linear-gradient(to bottom, #7256e6 0%, #5c3dca 52%, #4f35b4 100%);
+	border-top: 1px solid #8571ec;
+	border-left: 1px solid #4b32ad;
+	border-right: 1px solid #4b32ad;
+	border-bottom: 1px solid #4b32ad;
+	color: #ffffff;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* 3층 검색줄 */
+#rightSide #priceSearch {
+position: relative;
+	height: 34px;
+	margin: 0 8px 8px 8px;
+	background: #2b2f38;
+	border: 1px solid #363c46;
+	border-radius: 0;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.03),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.20),
+		1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+#rightSide #priceSearch fieldset {
+position: relative;
+	height: 32px;
+	padding: 5px 10px 0 10px;
+	box-sizing: border-box;
+	white-space: nowrap;
+	line-height: 22px;
+}
+
+#rightSide #priceSearch input[type="text"] {
+height: 22px;
+	padding: 1px 4px;
+	border-top: 1px solid #0d1118;
+	border-left: 1px solid #0d1118;
+	border-right: 1px solid #4d5562;
+	border-bottom: 1px solid #4d5562;
+	background: #2e343f;
+	box-shadow:
+		inset 1px 1px 0 #1b2029,
+		inset -1px -1px 0 #3f4652;
+	color: #ffffff;
+	font-size: 11px;
+	line-height: 18px;
+	box-sizing: border-box;
+	width: 92px;
+	vertical-align: middle;
+}
+
+#rightSide #priceSearch input.smallSearch {
+	width: 22px;
+	height: 22px;
+	margin-left: 1px;
+	padding: 0;
+	vertical-align: middle;
+}
+
+#rightSide #priceSearch input.yellowSmall {
+	width: 32px;
+	height: 22px;
+	margin-left: 1px;
+	padding: 0;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+#rightSide #priceSearch fieldset > span {
+	display: inline-block;
+	height: 21px;
+	line-height: 19px;
+	margin-left: 3px;
+	padding: 0 18px 0 6px;
+	background: #25334a;
+	border: 0;
+	color: #e9edf3;
+	font-size: 12px;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+#rightSide #priceSearch fieldset > span.strongRed {
+	margin-left: 6px;
+	padding: 0 20px 0 5px;
+	background: #25334a;
+	border: 0;
+	color: #ff1f35;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+/* 현재가 요약표 */
+#rightSide #priceSummary {
+width: 100%;
+	height: 54px;
+	margin: 0;
+	border: 1px solid #363c46;
+	border-radius: 0;
+	background: #2b2f38;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.03),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.20),
+		1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+#rightSide #priceSummary th,
+#rightSide #priceSummary td {
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+}
+
+#rightSide #priceSummary th:last-child,
+#rightSide #priceSummary td:last-child {
+	border-right: 0;
+}
+
+#rightSide #priceSummary th {
+	height: 25px;
+	background: #3b404b;
+	color: #d0d4dc;
+	font-weight: normal;
+	text-align: center;
+}
+
+#rightSide #priceSummary td {
+	height: 27px;
+	background: #2b2f38;
+	padding: 0 16px 0 6px;
+	text-align: right;
+}
+
+#rightSide #priceSummary td:nth-child(1),
+#rightSide #priceSummary td:nth-child(2),
+#rightSide #priceSummary td:nth-child(3),
+#rightSide #priceSummary td.summaryChange,
+#rightSide #priceSummary td.summaryChange .summaryArrow {
+	color: #e05a68;
+}
+
+#rightSide #priceSummary td:nth-child(4) {
+	color: #d7dae0;
+}
+
+#rightSide #priceSummary td.summaryChange .summaryArrow {
+	position: static;
+	display: inline-block;
+	margin-right: 42px;
+	line-height: 27px;
+	font-size: 11px;
+}
+
+/* 호가창 */
+#rightSide #orderBook {
+width: 100%;
+	height: 273px;
+	margin: 0 0 12px 0;
+	border: 1px solid #363c46;
+	border-radius: 0;
+	background: #2b2f38;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.03),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.20),
+		1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+#rightSide #orderBook th:nth-child(1),
+#rightSide #orderBook td:nth-child(1) {
+	width: 102px;
+}
+
+#rightSide #orderBook th:nth-child(2),
+#rightSide #orderBook td:nth-child(2) {
+	width: 107px;
+}
+
+#rightSide #orderBook th:nth-child(3),
+#rightSide #orderBook td:nth-child(3) {
+	width: 104px;
+}
+
+#rightSide #orderBook th:nth-child(4),
+#rightSide #orderBook td:nth-child(4) {
+	width: 98px;
+}
+
+#rightSide #orderBook th:nth-child(5),
+#rightSide #orderBook td:nth-child(5) {
+	width: 107px;
+}
+
+#rightSide #orderBook th {
+	height: 23px;
+	background: #3b404b;
+	color: #d0d4dc;
+	font-weight: normal;
+	text-align: center;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+}
+
+#rightSide #orderBook td {
+	height: 22px;
+	background: #2b2f38;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+	padding: 0 12px 0 5px;
+	text-align: right;
+}
+
+#rightSide #orderBook th:last-child,
+#rightSide #orderBook td:last-child {
+	border-right: 0;
+}
+
+/* 매도 파란 영역 */
+#rightSide #orderBook .ask-area,
+#rightSide #orderBook .priceAsk {
+	background: #15415f;
+}
+
+#rightSide #orderBook .ask-area {
+	color: #dce8f2;
+}
+
+#rightSide #orderBook .priceAsk {
+	color: #e05a68;
+	padding-right: 14px;
+}
+
+#rightSide #orderBook tbody tr:nth-child(1) .ask-area,
+#rightSide #orderBook tbody tr:nth-child(1) .priceAsk {
+	background: #184b6d;
+}
+
+#rightSide #orderBook tbody tr:nth-child(2) .ask-area,
+#rightSide #orderBook tbody tr:nth-child(2) .priceAsk {
+	background: #164666;
+}
+
+#rightSide #orderBook tbody tr:nth-child(3) .ask-area,
+#rightSide #orderBook tbody tr:nth-child(3) .priceAsk {
+	background: #14415f;
+}
+
+#rightSide #orderBook tbody tr:nth-child(4) .ask-area,
+#rightSide #orderBook tbody tr:nth-child(4) .priceAsk {
+	background: #123b57;
+}
+
+#rightSide #orderBook tbody tr:nth-child(5) .ask-area,
+#rightSide #orderBook tbody tr:nth-child(5) .priceAsk {
+	background: #10354f;
+}
+
+/* 상한 / 하한 / 시가 / 고가 / 저가 */
+#rightSide #orderBook td.buyBg {
+	background: #3b404b;
+	color: #d7dae0;
+	text-align: center;
+	border-left: 3px solid #2b2f38;
+	border-right: 1px solid #2b2f38;
+	border-bottom: 1px solid #2b2f38;
+	padding: 0;
+}
+
+#rightSide #orderBook .bid-area {
+	background: #2b2f38;
+	color: #e05a68;
+	padding-right: 12px;
+}
+
+#rightSide #orderBook .buyBgblue {
+	background: #2b2f38;
+	color: #4b94c9;
+	padding-right: 12px;
+}
+
+/* 현재가 강조칸 */
+#rightSide #orderBook td.currentPrice {
+	background: #e13355;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 22px;
+	text-align: right;
+	border-right: 1px solid #4a1119;
+	border-bottom: 1px solid #4a1119;
+	padding-right: 14px;
+}
+
+/* 매수 붉은 영역 */
+#rightSide #orderBook td.priceBid {
+	background: #55131d;
+	color: #e05a68;
+	text-align: right;
+	border-right: 1px solid #3b0f16;
+	border-bottom: 1px solid #3b0f16;
+	padding-right: 14px;
+}
+
+#rightSide #orderBook tbody tr:nth-child(6) td:nth-child(4),
+#rightSide #orderBook tbody tr:nth-child(6) td:nth-child(5) {
+	background: #481119;
+	border-bottom: 1px solid #3b0f16;
+}
+
+#rightSide #orderBook tbody tr:nth-child(7) td:nth-child(3),
+#rightSide #orderBook tbody tr:nth-child(7) td:nth-child(4),
+#rightSide #orderBook tbody tr:nth-child(7) td:nth-child(5) {
+	background: #4d121a;
+	border-bottom: 1px solid #3b0f16;
+}
+
+#rightSide #orderBook tbody tr:nth-child(8) td:nth-child(3),
+#rightSide #orderBook tbody tr:nth-child(8) td:nth-child(4),
+#rightSide #orderBook tbody tr:nth-child(8) td:nth-child(5) {
+	background: #53131d;
+	border-bottom: 1px solid #3b0f16;
+}
+
+#rightSide #orderBook tbody tr:nth-child(9) td:nth-child(3),
+#rightSide #orderBook tbody tr:nth-child(9) td:nth-child(4) {
+	background: #59141f;
+	border-bottom: 1px solid #3b0f16;
+}
+
+/* 73,800 텍스트 흰색 */
+#rightSide #orderBook tbody tr:nth-child(9) td:nth-child(2) {
+	color: #ffffff;
+}
+
+#rightSide #orderBook tbody tr:nth-child(10) td:nth-child(1),
+#rightSide #orderBook tbody tr:nth-child(10) td:nth-child(2),
+#rightSide #orderBook tbody tr:nth-child(10) td:nth-child(3) {
+	background: #5e1521;
+	border-bottom: 1px solid #3b0f16;
+}
+
+#rightSide #orderBook tbody tr:nth-child(10) td:nth-child(1) {
+	color: #4b94c9;
+}
+
+/* 액면가 / PER / 자본금 */
+#rightSide #orderBook tbody tr:nth-child(6) td:nth-child(1),
+#rightSide #orderBook tbody tr:nth-child(7) td:nth-child(1),
+#rightSide #orderBook tbody tr:nth-child(8) td:nth-child(1) {
+	background: #3b404b;
+	color: #d7dae0;
+	text-align: center;
+	border-left: 0;
+	border-right: 1px solid #2b2f38;
+	border-bottom: 1px solid #2b2f38;
+	padding: 0;
+}
+
+#rightSide #orderBook td.blankMerge {
+	background: #2b2f38;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+}
+
+#rightSide #orderBook tfoot td {
+	height: 23px;
+	background: #373c46;
+	color: #d7dae0;
+	border-right: 1px solid #242936;
+	border-bottom: 1px solid #242936;
+	text-align: center;
+}
+
+#rightSide #orderBook tfoot td:nth-child(4) {
+	text-align: right;
+	padding-right: 12px;
+}
+
+#rightSide #orderBook tfoot td.leftTotal {
+	text-align: right;
+	padding-right: 12px;
+}
+
+
+/* =========================================================
+   10. 오른쪽 하단 매도/주문 구역
+   - 매도 표는 2층 안에 바로 배치
+   ========================================================= */
+#rightSide #orderTabs {
+position: relative;
+	height: 28px;
+	margin: 0 8px 7px 8px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+#rightSide #orderTabs:after {
+	display: none;
+	content: none;
+}
+
+#rightSide #orderTabs input {
+position: relative;
+	z-index: 2;
+	width: 50px;
+	height: 28px;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #6a7180;
+	border-left: 1px solid #171b22;
+	border-right: 1px solid #171b22;
+	border-bottom: 1px solid #171b22;
+	background: linear-gradient(to bottom, #5b6371 0%, #4b5260 45%, #3f4551 46%, #323843 100%);
+	color: #eef2f7;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	box-sizing: border-box;
+}
+
+#rightSide #orderTabs input.on {
+z-index: 3;
+	height: 28px;
+	background: linear-gradient(to bottom, #007ed8 0%, #006fbd 50%, #005ea2 100%);
+	border-top: 1px solid #1688dc;
+	border-left: 1px solid #005ea2;
+	border-right: 1px solid #005ea2;
+	border-bottom: 1px solid #004b82;
+	color: #ffffff;
+	line-height: 26px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+#rightSide #orderPanel {
+width: 100%;
+	height: 245px;
+	margin: 0 0 12px 0;
+	background: #2b2f38;
+	border: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+}
+
+#rightSide #orderPanel fieldset {
+	padding: 9px 0 0 18px;
+}
+
+#rightSide #orderPanel .formRow {
+	clear: both;
+	height: 26px;
+	line-height: 22px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#rightSide #orderPanel .formRow > label:first-child {
+	float: left;
+	width: 66px;
+	height: 22px;
+	line-height: 22px;
+	color: #d6d9df;
+	font-size: 12px;
+	text-align: left;
+}
+
+#rightSide #orderPanel input[type="text"],
+#rightSide #orderPanel input[type="password"],
+#rightSide #orderPanel select {
+	height: 22px;
+	border: 1px solid #161b22;
+	background: #383d47;
+	color: #ffffff;
+	font-size: 12px;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+#rightSide #orderPanel #account {
+	width: 120px;
+}
+
+#rightSide #orderPanel .blankBox {
+	display: inline-block;
+	width: 42px;
+	height: 20px;
+	margin-left: 4px;
+	background: #383d47;
+	vertical-align: middle;
+}
+
+#rightSide #orderPanel #password {
+	width: 56px;
+	border: 1px solid #c59a2f;
+	background: #393d47;
+}
+
+#rightSide #orderPanel #orderCode {
+height: 22px;
+	padding: 1px 4px;
+	border-top: 1px solid #0d1118;
+	border-left: 1px solid #0d1118;
+	border-right: 1px solid #4d5562;
+	border-bottom: 1px solid #4d5562;
+	background: #2e343f;
+	box-shadow:
+		inset 1px 1px 0 #1b2029,
+		inset -1px -1px 0 #3f4652;
+	color: #ffffff;
+	font-size: 11px;
+	line-height: 18px;
+	box-sizing: border-box;
+	width: 145px;
+}
+
+#rightSide #orderPanel #orderKind,
+#rightSide #orderPanel .formRow:nth-of-type(5) select {
+	width: 145px;
+}
+
+#rightSide #orderPanel #amount,
+#rightSide #orderPanel #orderPrice {
+	width: 145px;
+	padding-right: 5px;
+	text-align: right;
+}
+
+#rightSide #orderPanel input.smallSearch {
+	width: 22px;
+	height: 22px;
+	margin-left: 1px;
+	padding: 0;
+	vertical-align: middle;
+}
+
+#rightSide #orderPanel input[type="checkbox"],
+#rightSide #orderPanel input[type="radio"] {
+	width: 13px;
+	height: 13px;
+	margin: 0 3px;
+	vertical-align: middle;
+	background: #11161d;
+	border: 1px solid #5b6370;
+}
+
+/* 주문 패널 현대제철 박스 */
+#rightSide #orderPanel .formRow:nth-of-type(3) > span {
+	display: inline-block;
+	height: 22px;
+	line-height: 20px;
+	margin-left: 2px;
+	padding: 0 18px 0 6px;
+	background: #25334a;
+	border: 0;
+	color: #e9edf3;
+	font-size: 12px;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+#rightSide #orderPanel .formRow span {
+	margin-left: 4px;
+	color: #d6d9df;
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+#rightSide #orderPanel .inlineLabel,
+#rightSide #orderPanel .radioLabel {
+	float: none;
+	width: auto;
+	height: 22px;
+	line-height: 22px;
+	margin-right: 4px;
+	color: #d6d9df;
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+#rightSide #orderPanel .ableBtn {
+	width: 44px;
+	height: 22px;
+	margin-left: 4px;
+	padding: 0;
+	border: 1px solid #171b22;
+	background: linear-gradient(to bottom, #5a606d 0%, #4a505d 46%, #3d434e 47%, #313742 100%);
+	color: #eef2f7;
+	line-height: 20px;
+}
+
+#rightSide #orderPanel #orderButtons {
+	height: 32px;
+	padding-top: 1px;
+	padding-left: 120px;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+#rightSide #orderPanel #orderButtons .sellBtn {
+	width: 66px;
+	height: 24px;
+	margin-right: 1px;
+	padding: 0;
+	background: linear-gradient(to bottom, #1c96ee 0%, #0076cc 50%, #005da5 100%);
+	border: 1px solid #004579;
+	color: #ffffff;
+	line-height: 22px;
+}
+
+#rightSide #orderPanel #orderButtons input[type="reset"] {
+	width: 66px;
+	height: 24px;
+	margin-left: 0;
+	padding: 0;
+	background: linear-gradient(to bottom, #5c6371 0%, #4c5361 45%, #3f4551 46%, #323843 100%);
+	color: #eef2f7;
+	line-height: 22px;
+}
+
+/* =========================================================
+   11. 테마 스위치
+   ========================================================= */
+#themeSwitch {
+	width: 1280px;
+	height: 24px;
+	line-height: 24px;
+	margin: -28px auto 0 auto;
+	text-align: left;
+	font-size: 11px;
+	color: #d6d9df;
+	position: relative;
+	z-index: 20;
+}
+
+#themeSwitch span {
+	margin-right: 6px;
+}
+
+#themeSwitch input {
+	width: 13px;
+	height: 13px;
+	margin: 0 2px 0 8px;
+	vertical-align: middle;
+}
+
+#themeSwitch label {
+	margin-right: 6px;
+	color: #d6d9df;
+	vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   12. DOM 검색창
+   ========================================================= */
+#domSearchBox {
+	width: 480px;
+	margin-top: 20px;
+	margin-right: 0;
+	margin-bottom: 20px;
+	margin-left: calc((100% - 1280px) / 2);
+	padding: 10px;
+	border: 1px solid #363c46;
+	background: #2b2f38;
+	font-family: "Dotum", "돋움", Arial, sans-serif;
+	font-size: 12px;
+	color: #d7dae0;
+	box-sizing: border-box;
+	box-shadow:
+		inset 1px 1px 0 rgba(255, 255, 255, 0.04),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+#domSearchBox > div {
+	height: 28px;
+	line-height: 24px;
+	margin-bottom: 5px;
+	white-space: nowrap;
+}
+
+#domSearchBox > div:last-child {
+	height: 28px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	padding-left: 76px;
+	box-sizing: border-box;
+}
+
+#domSearchBox label {
+	display: inline-block;
+	width: 68px;
+	height: 24px;
+	padding-left: 8px;
+	border: 1px solid #171b22;
+	background: #3b404b;
+	color: #e3e7ee;
+	font-weight: bold;
+	line-height: 22px;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+#domSearchBox input[type="text"] {
+	width: 120px;
+	height: 24px;
+	margin-left: 4px;
+	padding: 2px 5px;
+	border: 1px solid #161b22;
+	background: #383d47;
+	color: #ffffff;
+	line-height: 20px;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+#domSearchBox span {
+	display: inline-block;
+	width: 250px;
+	height: 24px;
+	margin-left: 6px;
+	padding: 0 7px;
+	border: 1px solid #242936;
+	background: #1f242c;
+	color: #d7dae0;
+	line-height: 22px;
+	vertical-align: middle;
+	box-sizing: border-box;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#domSearchBox input[type="button"] {
+	width: 118px;
+	height: 25px;
+	margin-right: 5px;
+	padding: 0;
+	border: 1px solid #171b22;
+	background: linear-gradient(to bottom, #575e6c 0%, #474e5b 46%, #3a404b 47%, #2f3440 100%);
+	color: #edf1f6;
+	font-size: 12px;
+	line-height: 23px;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+#domSearchBox input[type="button"]:hover {
+	background: linear-gradient(to bottom, #646c7a 0%, #535b69 46%, #444b57 47%, #363c47 100%);
+}
+

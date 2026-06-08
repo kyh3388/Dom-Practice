@@ -1,0 +1,984 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>CSS 과제 - 검정 테마</title>
+	<link rel="stylesheet" type="text/css" href="black.css" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+
+<body class="theme-black">
+	<div id="wrap">
+	
+	<!-- =================================왼쪽 표들================================= -->
+		<div id="leftSide">
+
+			<!-- 왼쪽 위 패널: 관심종목 탭 + 검색줄 + 관심종목 표 -->
+			<div class="panelBox leftWatchPanel">
+				<div id="leftTopTabs">
+				<ul>
+					<li><input type="button" value="관심종목" class="on" /></li>
+					<li><input type="button" value="종목별투자" /></li>
+					<li><input type="button" value="순위정보" /></li>
+					<li><input type="button" value="매매상위" /></li>
+					<li><input type="button" value="업종별종목" /></li>
+					<li><input type="button" value="투자자종합" /></li>
+					<li><input type="button" value="뉴스/공시" /></li>
+				</ul>
+				<div class="arrowBox">
+					<input type="button" value="◀" />
+					<input type="button" value="▶" />
+				</div>
+			</div>
+			
+			<div id="watchSearch">
+				<form action="#" method="get">
+					<fieldset>
+						<legend class="blind">관심종목 검색</legend>
+						<label for="interestGroup">관심그룹</label>
+						<select id="interestGroup" name="interestGroup">
+							<option value="00">00 00</option>
+						</select>
+						
+						<input type="button" value="등록/수정" class="normalBtn" />
+						<label for="watchType">구분</label>
+						<select id="watchType" name="watchType">
+							<option value="quote">호가</option>
+						</select>
+						<input type="submit" value="조회" class="searchBtn" />
+					</fieldset>
+				</form>
+			</div>
+			
+			<table id="watchTable" summary="관심종목 목록">
+				<caption>관심종목</caption>
+				<thead>
+					<tr>
+						<th scope="col" class="nameCol sortCol">종목명</th>
+						<th scope="col" class="nameCol sortCol">현재가</th>
+						<th scope="col" class="nameCol sortCol">전일비</th>
+						<th scope="col" class="nameCol sortCol">등락률</th>
+						<th scope="col" class="nameCol">매도호가</th>
+						<th scope="col" class="nameCol">매수호가</th>
+						<th scope="col" class="nameCol">체결량</th>
+						<th scope="col" class="nameCol sortCol">거래량</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+	<tr>
+		<td class="stock-name">기산텔레콤</td>
+		<td class="price-rise">2,320</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">30</span>
+		</td>
+		<td class="price-rise">1.31</td>
+		<td class="price-rise">2,330</td>
+		<td class="price-rise">2,320</td>
+		<td class="price-fall">300</td>
+		<td>53,212</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">국제디와이</td>
+		<td class="price-fall">180</td>
+		<td class="changeCell down">
+			<span class="changeArrow">▼</span>
+			<span class="changeNum">4</span>
+		</td>
+		<td class="down">-2.17</td>
+		<td class="price-fall">181</td>
+		<td class="price-fall">180</td>
+		<td class="price-fall">500</td>
+		<td>1,836,270</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">완리</td>
+		<td class="price-rise">2,985</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">105</span>
+		</td>
+		<td class="price-rise">3.65</td>
+		<td class="price-rise">2,990</td>
+		<td class="price-rise">2,980</td>
+		<td class="price-rise">66</td>
+		<td>218,841</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">SK하이닉스</td>
+		<td class="price-rise">48,350</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">850</span>
+		</td>
+		<td class="price-rise">1.79</td>
+		<td class="price-rise">48,350</td>
+		<td class="price-fall">48,300</td>
+		<td class="price-rise">1</td>
+		<td>1,992,739</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">현대차</td>
+		<td class="price-fall">227,500</td>
+		<td class="changeCell down">
+			<span class="changeArrow">▼</span>
+			<span class="changeNum">2,500</span>
+		</td>
+		<td class="down">-1.09</td>
+		<td class="price-rise">228,500</td>
+		<td class="price-rise">228,000</td>
+		<td class="price-fall">32</td>
+		<td>155,743</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">삼성물산</td>
+		<td class="price-rise">74,400</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">700</span>
+		</td>
+		<td class="price-rise">0.95</td>
+		<td class="price-rise">74,500</td>
+		<td>74,400</td>
+		<td class="price-fall">1</td>
+		<td>212,777</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">현대제철</td>
+		<td class="price-rise">74,100</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">300</span>
+		</td>
+		<td class="price-rise">0.41</td>
+		<td class="price-rise">74,200</td>
+		<td>74,100</td>
+		<td class="price-fall">1</td>
+		<td>146,585</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">SK이노베이션</td>
+		<td>113,000</td>
+		<td class="changeCell">
+			<span class="changeNum">0</span>
+		</td>
+		<td>0.00</td>
+		<td>113,000</td>
+		<td>112,500</td>
+		<td class="price-rise">9</td>
+		<td>218,472</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">기아차</td>
+		<td class="price-fall">56,400</td>
+		<td class="changeCell down">
+			<span class="changeArrow">▼</span>
+			<span class="changeNum">300</span>
+		</td>
+		<td class="down">-0.53</td>
+		<td>56,400</td>
+		<td class="price-fall">56,300</td>
+		<td class="price-rise">14</td>
+		<td>385,901</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">한일이화</td>
+		<td>21,150</td>
+		<td class="changeCell">
+			<span class="changeNum">0</span>
+		</td>
+		<td>0.00</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">삼성전자</td>
+		<td class="price-rise">1,319,000</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">8,000</span>
+		</td>
+		<td class="price-rise">0.61</td>
+		<td>1,319,000</td>
+		<td class="price-fall">1,318,000</td>
+		<td class="price-rise">6</td>
+		<td>75,900</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">한국캐피탈</td>
+		<td class="price-rise">18,300</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">300</span>
+		</td>
+		<td class="price-rise">1.67</td>
+		<td class="price-rise">18,350</td>
+		<td class="price-rise">18,300</td>
+		<td class="price-fall">2</td>
+		<td>513,447</td>
+	</tr>
+
+	<tr>
+		<td class="stock-name">골프존</td>
+		<td class="price-rise">19,350</td>
+		<td class="changeCell price-rise">
+			<span class="changeArrow">▲</span>
+			<span class="changeNum">50</span>
+		</td>
+		<td class="price-rise">0.26</td>
+		<td>19,350</td>
+		<td class="price-fall">19,300</td>
+		<td class="price-rise">22</td>
+		<td>24,742</td>
+	</tr>
+</tbody>		
+			</table>
+			</div>
+			
+			<!-- 왼쪽 아래 패널: 시간별시세 탭 + 검색줄 + 시간별시세 표 + 상태바 -->
+			<div class="panelBox leftTimePanel">
+				<div id="bottomTabs">
+				<ul>
+					<li><input type="button" value="차트" /></li>
+					<li><input type="button" value="시간별시세" class="on" /></li>
+					<li><input type="button" value="일별시세" /></li>
+					<li><input type="button" value="주문체결" /></li>
+					<li><input type="button" value="미체결" /></li>
+					<li><input type="button" value="잔고" /></li>
+					<li><input type="button" value="주문가능" /></li>
+					<li><input type="button" value="손익" /></li>
+				</ul>
+			</div>
+			
+			<div id="timeSearch">
+				<form action="#" method="get">
+					<fieldset>
+						<legend class="blind">시간별시세 검색</legend>
+						
+						<div class="timeSearchLine">
+							<label for="timeStock">종목검색</label>
+							<input type="text" id="timeStock" name="timeStock" value="004020" />
+							
+							<input type="button" value="" class="smallSearch" />
+							<input type="button" value="관심" class="yellowSmall" />
+							<span class="stockNameText">현대제철</span>
+							<span class="marketBadge">[KOSPI200/철강,금속] <span class="strongRed"> 증 30 %</span></span>
+							<input type="submit" value="조회" class="searchBtn" />
+						</div>
+						
+						<div class="timeSearchLine">
+							<label for="dayType">당일/전일</label>
+							<select id="dayType" name="dayType">
+								<option value="today">당일</option>
+							</select>
+						
+							<label for="tickType">조건</label>
+							<select id="tickType" name="tickType">
+								<option value="tick">TICK</option>
+							</select>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			
+			<table id="timeTable" summary="시간별 시세">
+	            <caption>시간별 시세</caption>
+	            <thead>
+	                <tr>
+	                    <th scope="col">시간</th>
+	                    <th scope="col">체결가</th>
+	                    <th scope="col">대비</th>
+	                    <th scope="col">등락률</th>
+	                    <th scope="col">체결량</th>
+	                    <th scope="col">체결강도</th>
+	                    <th scope="col">거래량</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+				<tr>
+					<td>12:45:38</td>
+					<td class="price-rise">74,100</td>
+					<td class="timeChange price-rise">
+						<span class="timeArrow">▲</span>
+						<span class="timeNum">300</span>
+					</td>
+					<td class="price-rise">0.41</td>
+					<td class="price-fall">1</td>
+					<td>74.65</td>
+					<td>146,585</td>
+				</tr>
+			
+				<tr>
+					<td>12:45:07</td>
+					<td class="price-rise">74,100</td>
+					<td class="timeChange price-rise">
+						<span class="timeArrow">▲</span>
+						<span class="timeNum">300</span>
+					</td>
+					<td class="price-rise">0.41</td>
+					<td class="price-fall">1</td>
+					<td>74.65</td>
+					<td>146,584</td>
+				</tr>
+			
+				<tr>
+					<td>12:45:02</td>
+					<td class="price-rise">74,100</td>
+					<td class="timeChange price-rise">
+						<span class="timeArrow">▲</span>
+						<span class="timeNum">300</span>
+					</td>
+					<td class="price-rise">0.41</td>
+					<td class="price-fall">1</td>
+					<td>74.65</td>
+					<td>146,583</td>
+				</tr>
+			
+				<tr>
+					<td>12:44:47</td>
+					<td class="price-rise">74,100</td>
+					<td class="timeChange price-rise">
+						<span class="timeArrow">▲</span>
+						<span class="timeNum">300</span>
+					</td>
+					<td class="price-rise">0.41</td>
+					<td class="price-fall">1</td>
+					<td>74.65</td>
+					<td>146,582</td>
+				</tr>
+			
+				<tr>
+					<td>12:44:43</td>
+					<td class="price-rise">74,200</td>
+					<td class="timeChange price-rise">
+						<span class="timeArrow">▲</span>
+						<span class="timeNum">400</span>
+					</td>
+					<td class="price-rise">0.54</td>
+					<td class="price-rise">5</td>
+					<td>74.65</td>
+					<td>146,581</td>
+				</tr>
+			
+				<tr>
+					<td>12:44:42</td>
+					<td class="price-rise">74,200</td>
+					<td class="timeChange price-rise">
+						<span class="timeArrow">▲</span>
+						<span class="timeNum">400</span>
+					</td>
+					<td class="price-rise">0.54</td>
+					<td class="price-rise">8</td>
+					<td>74.65</td>
+					<td>146,576</td>
+				</tr>
+			
+				<tr>
+					<td>12:44:42</td>
+					<td class="price-rise">74,200</td>
+					<td class="timeChange price-rise">
+						<span class="timeArrow">▲</span>
+						<span class="timeNum">400</span>
+					</td>
+					<td class="price-rise">0.54</td>
+					<td class="price-rise">33</td>
+					<td>74.65</td>
+					<td>146,568</td>
+				</tr>
+			</tbody>
+	        </table>
+	        
+	        <div id="statusBar">
+	        	<span>정상처리 되었습니다.</span>
+	        	<input type="button" value="다음" />
+	        	<input type="button" value="첫페이지" />
+	        </div>
+			</div>
+	        
+		</div>
+		
+		<!-- ================================오른쪽 표들================================= -->
+		<div id="rightSide">
+		
+			<!-- 오른쪽 위 패널: 현재가 탭 + 검색줄 + 요약표 + 호가창 -->
+			<div class="panelBox rightPricePanel">
+				<div id="rightTopTabs">
+				<ul>
+					<li><input type="button" value="현재가" class="on" /></li>
+					<li><input type="button" value="거래원" /></li>
+					<li><input type="button" value="일별" /></li>
+					<li><input type="button" value="정보" /></li>
+				</ul>
+			</div>
+			
+			<div id="priceSearch">
+				<form action="#" method="get">
+					<fieldset>
+						<legend class="blind">현재가 검색</legend>
+						<input type="text" value="004020" />
+						<input type="button" value="" class="smallSearch" />
+						<input type="button" value="관심" class="yellowSmall" />
+						<span>현대제철</span><span class="strongRed">증 30 %</span>
+					</fieldset>
+				</form>
+			</div>
+			
+			<table id="priceSummary" summary="현재가 요약">
+				<caption>현재가 요약</caption>
+				<thead>
+					<tr>
+						<th scope="col">현재가</th>
+						<th scope="col">전일대비</th>
+						<th scope="col">등락률</th>
+						<th scope="col">거래량</th>
+					</tr>
+				</thead>
+			
+			<tbody>
+				<tr>
+					<td class="price-rise">74,100</td>
+					<td class="summaryChange price-rise">
+						<span class="summaryArrow">▲</span>
+						<span class="summaryNum">300</span>
+					</td>
+					<td class="price-rise">0.41%</td>
+					<td>146,585</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table id="orderBook" summary="호가창">
+			<caption>호가창</caption>
+			<thead>
+				<tr>
+					<th scope="col">매도증감</th>
+					<th scope="col">매도잔량</th>
+					<th scope="col">12:45:38</th>
+					<th scope="col">매수잔량</th>
+					<th scope="col">매수증감</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr><td class="ask-area">0</td><td class="ask-area">7,872</td><td class="priceAsk">74,600</td><td class="buyBg">상한</td><td class="bid-area">84,800</td></tr>
+				<tr><td class="ask-area">0</td><td class="ask-area">8,066</td><td class="priceAsk">74,500</td><td class="buyBg">하한</td><td class="buyBgblue">62,800</td></tr>
+				<tr><td class="ask-area">0</td><td class="ask-area">4,414</td><td class="priceAsk">74,400</td><td class="buyBg">시가</td><td class="bid-area">74,100</td></tr>
+				<tr><td class="ask-area">0</td><td class="ask-area">856</td><td class="priceAsk">74,300</td><td class="buyBg">고가</td><td class="bid-area">74,900</td></tr>
+				<tr><td class="ask-area">0</td><td class="ask-area">1,058</td><td class="priceAsk">74,200</td><td class="buyBg">저가</td><td class="bid-area">74,100</td></tr>
+				
+				<tr><td>액면가</td><td>5,000</td><td class="currentPrice">74,100</td><td>3,103</td><td class="price-fall">-1</td></tr>
+				<tr><td>PER</td><td>9.04</td><td class="priceBid">74,000</td><td>2,324</td><td>0</td></tr>
+				<tr><td>자본금</td><td>5,827 억</td><td class="priceBid">73,900</td><td>1,717</td><td>0</td></tr>
+				<tr>
+					<td colspan="2" rowspan="2" class="blankMerge"></td>
+					<td class="priceBid">73,800</td>
+					<td>2,943</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td class="priceBid">73,700</td>
+					<td>1,044</td>
+					<td>0</td>
+				</tr>
+			</tbody>
+			
+			<tfoot>
+				<tr>
+					<td></td>
+					<td class="leftTotal">100,835</td>
+					<td>잔량합계</td>
+					<td>17,829</td>
+					<td></td>
+				</tr>
+			</tfoot>
+		</table>
+			</div>
+		
+			<!-- 오른쪽 아래 패널: 주문 탭 + 주문 입력 폼 -->
+			<div class="panelBox rightOrderPanel">
+		<div id="orderTabs">
+			<ul>
+				<li><input type="button" value="매도" class="on" /></li>
+				<li><input type="button" value="매수" /></li>
+				<li><input type="button" value="정정" /></li>
+				<li><input type="button" value="취소" /></li>
+			</ul>
+		</div>
+		
+		<div id="orderPanel">
+			<form action="#" method="post">
+				<fieldset>
+					<legend class="blind">주문 입력</legend>
+					
+					<div class="formRow">
+						<label for="account">계좌번호</label>
+						<select id="account" name="account">
+							<option value="">해당계좌 없음</option>
+						</select>
+						<span class="blankBox"></span>
+					</div>
+					
+					<div class="formRow">
+						<label for="password">비밀번호</label>
+						<input type="password" id="password" name="password" />
+						<input type="checkbox" id="savePw" name="savePw" />
+						<label for="savePw" class="inlineLabel">비밀번호 저장</label>
+					</div>
+					
+					<div class="formRow">
+						<label for="orderCode">종목코드</label>
+						<input type="text" id="orderCode" name="orderCode" value="004020" />
+						<input type="button" value="" class="smallSearch" />
+						<span>현대제철</span>
+					</div>
+					
+					<div class="formRow">
+						<label for="orderKind">매매구분</label>
+						<select id="orderKind" name="orderKind">
+							<option>지정가</option>
+						</select>
+						<input type="checkbox" id="marketPlus" name="marketPlus" />
+						<label for="marketPlus" class="inlineLabel">시장가</label>
+						<input type="radio" id="cash" name="tradeType" checked="checked" />
+						<label for="cash" class="radioLabel">현금</label>
+						<input type="radio" id="credit" name="tradeType" />
+						<label for="credit" class="radioLabel">신용</label>
+					</div>
+					
+					<div class="formRow">
+						<label>체결조건</label>
+						<select>
+							<option value="">없음</option>
+						</select>
+					</div>
+					
+					<div class="formRow">
+						<label for="amount">매도수량</label>
+						<input type="text" id="amount" name="amount" value="0" />
+						<input type="button" value="가능" class="ableBtn" />
+					</div>
+					
+					<div class="formRow">
+						<label for="orderPrice">매도단가</label>
+						<input type="text" id="orderPrice" name="orderPrice" value="0" />
+						<span>원</span>
+					</div>
+					
+					<div id="orderButtons">
+						<input type="submit" value="현금매도" class="sellBtn" />
+						<input type="reset" value="지움" />
+					</div>
+					
+				</fieldset>
+			</form>
+		</div>
+			</div>
+		</div>
+	</div>
+	
+<div id="themeSwitch">
+	<span>테마</span>
+	<input type="radio" id="themeWhite" name="themeMode" value="white" />
+	<label for="themeWhite">하양</label>
+	<input type="radio" id="themeBlack" name="themeMode" value="black" checked="checked" />
+	<label for="themeBlack">검정</label>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+(function () {
+	var whiteRadio = document.getElementById("themeWhite");
+	var blackRadio = document.getElementById("themeBlack");
+	
+	whiteRadio.onclick = function () {
+		location.href = "white_dom.html";
+	};
+	
+	blackRadio.onclick = function () {
+		document.body.className = "theme-black";
+	};
+}());
+//]]>
+</script>
+
+
+
+<!-- ############################# 과제 2번 검색창 ############################# -->
+<div id="domSearchBox">
+	<div>
+		<label for="searchId">id</label>
+		<input type="text" id="searchId" name="searchId" />
+		<span id="idSearchResult"></span>
+	</div>
+	<div>
+		<label for="searchNodeName">노드명</label>
+		<input type="text" id="searchNodeName" name="searchNodeName" />
+		<span id="nodeNameSearchResult"></span>
+	</div>
+	<div>
+		<label for="searchAttrName">속성명</label>
+		<input type="text" id="searchAttrName" name="searchAttrName" />
+		<span id="attrNameSearchResult"></span>
+	</div>
+	<div>
+		<label for="searchAttrValue">속성값</label>
+		<input type="text" id="searchAttrValue" name="searchAttrValue" />
+		<span id="attrValueSearchResult"></span>
+	</div>
+
+	<div>
+		<input type="button" id="searchByJsBtn" value="검색(JavaScript)" />
+		<input type="button" id="searchByJavaBtn" value="검색(Java)" />
+		<input type="button" id="searchByJqueryBtn" value="검색(JQuery)" />
+	</div>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ JS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<script type="text/javascript">
+//<![CDATA[
+(function () {
+	var searchByJsBtn = document.getElementById("searchByJsBtn");
+	
+	var searchIdInput = document.getElementById("searchId");
+	var idSearchResult = document.getElementById("idSearchResult");
+	
+	var searchNodeNameInput = document.getElementById("searchNodeName");
+	var nodeNameSearchResult = document.getElementById("nodeNameSearchResult");
+	
+	var searchAttrNameInput = document.getElementById("searchAttrName");
+	var attrNameSearchResult = document.getElementById("attrNameSearchResult");
+	
+	var searchAttrValueInput = document.getElementById("searchAttrValue");
+	var attrValueSearchResult = document.getElementById("attrValueSearchResult");
+	
+	function searchIdNode(currentNode, targetId) {
+		var result = null;
+		var childNode;
+		var i;
+		
+		if (currentNode.nodeType === 1) {
+			if (currentNode.getAttribute("id") === targetId) {
+				return currentNode;
+			}
+		}
+		
+		for (i = 0; i < currentNode.childNodes.length; i++) {
+			childNode = currentNode.childNodes[i];
+			result = searchIdNode(childNode, targetId);
+			
+			if (result !== null) {
+				return result;
+			}
+		}
+		
+		return null;
+	}
+	
+	function countNodeName(currentNode, targetNodeName) {
+		var count = 0;
+		var childNode;
+		var i;
+		
+		if (currentNode.nodeType === 1) {
+			if (currentNode.nodeName.toLowerCase() === targetNodeName.toLowerCase()) {
+				count++;
+			}
+		}
+		
+		for (i = 0; i < currentNode.childNodes.length; i++) {
+			childNode = currentNode.childNodes[i];
+			count += countNodeName(childNode, targetNodeName);
+		}
+		
+		return count;
+	}
+	
+	function countAttrName(currentNode, targetAttrName) {
+		var count = 0;
+		var childNode;
+		var attrNode;
+		var i;
+		var j;
+		
+		if (currentNode.nodeType === 1) {
+			for (j = 0; j < currentNode.attributes.length; j++) {
+				attrNode = currentNode.attributes[j];
+				
+				if (attrNode.nodeName.toLowerCase() === targetAttrName.toLowerCase()) {
+					count++;
+				}
+			}
+		}
+		
+		for (i = 0; i < currentNode.childNodes.length; i++) {
+			childNode = currentNode.childNodes[i];
+			count += countAttrName(childNode, targetAttrName);
+		}
+		
+		return count;
+	}
+	
+	function countAttrValue(currentNode, targetAttrValue) {
+		var count = 0;
+		var childNode;
+		var attrNode;
+		var i;
+		var j;
+		
+		if (currentNode.nodeType === 1) {
+			for (j = 0; j < currentNode.attributes.length; j++) {
+				attrNode = currentNode.attributes[j];
+				
+				if (attrNode.nodeValue === targetAttrValue) {
+					count++;
+				}
+			}
+		}
+		
+		for (i = 0; i < currentNode.childNodes.length; i++) {
+			childNode = currentNode.childNodes[i];
+			count += countAttrValue(childNode, targetAttrValue);
+		}
+		
+		return count;
+	}
+	
+	function searchId() {
+		var targetId = searchIdInput.value;
+		var foundNode;
+		
+		if (targetId === "") {
+			idSearchResult.innerHTML = "";
+			return;
+		}
+		
+		foundNode = searchIdNode(document.documentElement, targetId);
+		
+		if (foundNode === null) {
+			idSearchResult.innerHTML = "검색 결과 없음 / 0개";
+		} else {
+			idSearchResult.innerHTML = "검색 성공: "
+				+ foundNode.nodeName.toLowerCase()
+				+ "#"
+				+ targetId
+				+ " / 1개(JS)";
+		}
+	}
+	
+	function searchNodeName() {
+		var targetNodeName = searchNodeNameInput.value;
+		var count;
+		
+		if (targetNodeName === "") {
+			nodeNameSearchResult.innerHTML = "";
+			return;
+		}
+		
+		count = countNodeName(document.documentElement, targetNodeName);
+		nodeNameSearchResult.innerHTML = targetNodeName
+			+ " 노드 개수: " + count + "개(JS)";
+	}
+	
+	function searchAttrName() {
+		var targetAttrName = searchAttrNameInput.value;
+		var count;
+		
+		if (targetAttrName === "") {
+			attrNameSearchResult.innerHTML = "";
+			return;
+		}
+		
+		count = countAttrName(document.documentElement, targetAttrName);
+		attrNameSearchResult.innerHTML = targetAttrName
+			+ " 속성 개수: " + count + "개(JS)";
+	}
+	
+	function searchAttrValue() {
+		var targetAttrValue = searchAttrValueInput.value;
+		var count;
+		
+		if (targetAttrValue === "") {
+			attrValueSearchResult.innerHTML = "";
+			return;
+		}
+		
+		count = countAttrValue(document.documentElement, targetAttrValue);
+		attrValueSearchResult.innerHTML = targetAttrValue
+			+ " 속성값 개수: " + count + "개(JS)";
+	}
+	
+	searchByJsBtn.onclick = function () {
+		searchId();
+		searchNodeName();
+		searchAttrName();
+		searchAttrValue();
+	};
+}());
+//]]>
+</script>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Java @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<script type="text/javascript">
+//<![CDATA[
+(function () {
+	var searchByJavaBtn = document.getElementById("searchByJavaBtn");
+	
+	function createRequest() {
+		if (window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		}
+		
+		return new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	searchByJavaBtn.onclick = function () {
+		var request = createRequest();
+		
+		var searchId = document.getElementById("searchId").value;
+		var searchNodeName = document.getElementById("searchNodeName").value;
+		var searchAttrName = document.getElementById("searchAttrName").value;
+		var searchAttrValue = document.getElementById("searchAttrValue").value;
+		
+		var url = "domSearch"
+			+ "?theme=black"
+			+ "&searchId=" + encodeURIComponent(searchId)
+			+ "&searchNodeName=" + encodeURIComponent(searchNodeName)
+			+ "&searchAttrName=" + encodeURIComponent(searchAttrName)
+			+ "&searchAttrValue=" + encodeURIComponent(searchAttrValue);
+		
+		request.onreadystatechange = function () {
+			var data;
+			
+			if (request.readyState === 4) {
+				if (request.status === 200) {
+					data = JSON.parse(request.responseText);
+					
+					document.getElementById("idSearchResult").innerHTML = data.idResult;
+					document.getElementById("nodeNameSearchResult").innerHTML = data.nodeNameResult;
+					document.getElementById("attrNameSearchResult").innerHTML = data.attrNameResult;
+					document.getElementById("attrValueSearchResult").innerHTML = data.attrValueResult;
+				} else {
+					alert("Java 검색 요청 실패: " + request.status);
+				}
+			}
+		};
+		
+		request.open("GET", url, true);
+		request.send(null);
+	};
+}());
+//]]>
+</script>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ JQuery @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<script type="text/javascript">
+//<![CDATA[
+$(function () {
+	
+	function searchIdByJquery() {
+		var targetId = $("#searchId").val();
+		var foundElement;
+		
+		if (targetId === "") {
+			$("#idSearchResult").html("");
+			return;
+		}
+		
+		foundElement = $("#" + targetId);
+		
+		if (foundElement.length === 0) {
+			$("#idSearchResult").html("검색 결과 없음 / 0개");
+		} else {
+			$("#idSearchResult").html("검색 성공: "
+					+ foundElement.prop("tagName").toLowerCase()
+					+ "#" + targetId + " / 1개(JQuery)");
+		}
+	}
+		
+	function searchNodeNameByJquery() {
+		var targetNodeName = $("#searchNodeName").val();
+		var count;
+			
+		if (targetNodeName === "") {
+			$("#nodeNameSearchResult").html("");
+			return;
+		}
+			
+		count = $(targetNodeName).length;
+			
+		$("#nodeNameSearchResult").html(targetNodeName
+				+ " 노드 개수: " + count + "개(JQuery)");
+	}
+		
+	function searchAttrNameByJquery() {
+		var targetAttrName = $("#searchAttrName").val();
+		var count;
+			
+		if (targetAttrName === "") {
+			$("#attrNameSearchResult").html("");
+			return;
+		}
+			
+		count = $("[" + targetAttrName + "]").length;
+			
+		$("#attrNameSearchResult").html(targetAttrName
+				+ " 속성 개수: " + count + "개(JQuery)");
+	}
+		
+	function searchAttrValueByJquery() {
+		var targetAttrValue = $("#searchAttrValue").val();
+		var count;
+			
+		if (targetAttrValue === "") {
+			$("#attrValueSearchResult").html("");
+			return;
+		}
+			
+		count = 0;
+			
+		$("*").each(function () {
+			var attributes = this.attributes;
+			var i;
+				
+			if (attributes) {
+				for (i = 0; i < attributes.length; i++) {
+					if (attributes[i].value === targetAttrValue) {
+						count++;
+					}
+				}
+			}
+		});
+			
+		$("#attrValueSearchResult").html(targetAttrValue
+				+ " 속성값 개수: " + count + "개(JQuery)");
+	}
+		
+	$("#searchByJqueryBtn").click(function () {
+		searchIdByJquery();
+		searchNodeNameByJquery();
+		searchAttrNameByJquery();
+		searchAttrValueByJquery();
+	});
+});
+//]]>
+</script>
+</body>
+</html>
+
+
